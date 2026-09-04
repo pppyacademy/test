@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ข้อมูลการทำแบบประเมินการเป็นผู้ประกอบการ</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="gasFrame" allow="camera; microphone; forms; geolocation; autoplay"></iframe>
+
+    <script>
+        // URL ของ Google Apps Script ของคุณ
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbz7hCyPHTenApOs4s6C2eChgKNUtttexWihtlWauv1dPaBa4c_d-KF9uveBjigw9bHOSw/exec?page=admin";
+        
+        // ดึง Parameter (เช่น ?report=GET2-xxx) ที่ติดมากับ GitHub Pages แล้วส่งต่อเข้า iframe
+        const params = window.location.search;
+        document.getElementById("gasFrame").src = GAS_URL + params;
+    </script>
+</body>
+</html>
