@@ -2,36 +2,35 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <!-- 1. Viewport Meta Tag: หัวใจสำคัญของการแสดงผลบนมือถือ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ภารกิจรู้ตนเพื่อเป็นผู้ประกอบการ</title>
     <style>
-        /* ล้างค่าเริ่มต้นของ Browser */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* ป้องกัน Scrollbar ซ้อนกัน 2 ชั้น */
+            overflow: hidden;
         }
-
         iframe {
-            display: block; /* ป้องกันช่องว่างด้านล่าง */
+            display: block;
             width: 100%;
-            
-            /* ความสูง: ใช้ 100dvh สำหรับมือถือรุ่นใหม่เพื่อไม่ให้โดน Address bar บัง */
-            height: 100vh; 
-            height: 100dvh; 
-            
+            height: 100vh;
+            height: 100dvh;
             border: none;
         }
     </style>
 </head>
 <body>
-    <!-- เพิ่ม allow attribute เพื่อให้สคริปต์เข้าถึงฟีเจอร์ต่างๆ ได้ถ้าจำเป็น -->
-    <iframe 
-        src="https://script.google.com/macros/s/AKfycbz7hCyPHTenApOs4s6C2eChgKNUtttexWihtlWauv1dPaBa4c_d-KF9uveBjigw9bHOSw/exec"
-        allow="camera; microphone; forms; geolocation; autoplay"
-    ></iframe>
+    <iframe id="gasFrame" allow="camera; microphone; forms; geolocation; autoplay"></iframe>
+
+    <script>
+        // URL ของ Google Apps Script ของคุณ
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbz7hCyPHTenApOs4s6C2eChgKNUtttexWihtlWauv1dPaBa4c_d-KF9uveBjigw9bHOSw/exec";
+        
+        // ดึง Parameter (เช่น ?report=GET2-xxx) ที่ติดมากับ GitHub Pages แล้วส่งต่อเข้า iframe
+        const params = window.location.search;
+        document.getElementById("gasFrame").src = GAS_URL + params;
+    </script>
 </body>
 </html>
